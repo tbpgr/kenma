@@ -2,6 +2,8 @@
 
 [WIP]Kenma is pluggable Question-Answer tool.
 
+[![Build Status](https://travis-ci.org/tbpgr/kenma.png?branch=master)](https://travis-ci.org/tbpgr/kenma)
+
 ## Installation
 
 Add this line to your application's Gemfile:

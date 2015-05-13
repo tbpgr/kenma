@@ -12,6 +12,7 @@ module Kenma
       # rubocop:disable Lint/Eval
       def self.correct?(answer)
         out = StringIO.new
+        out.set_encoding('utf-8')
         $stdout = out
         eval @template.gsub('$answer$', answer)
         actual = $stdout.string

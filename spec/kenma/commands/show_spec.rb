@@ -44,6 +44,7 @@ description:
 
           # -- given --
           out = StringIO.new
+          out.set_encoding('utf-8')
           $stdout = out
           dummy
 
@@ -54,7 +55,7 @@ description:
           # -- then --
           expect(actual).to eq(c[:expected])
         ensure
-          case_after c
+          case_after c, actual
         end
       end
 
@@ -62,7 +63,8 @@ description:
         # implement each case before
       end
 
-      def case_after(c)
+      def case_after(c, actual)
+        $stdout = STDOUT
         Kenma::Container.questions.delete(dummy)
       end
     end

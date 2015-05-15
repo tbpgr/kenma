@@ -1,3 +1,4 @@
+require 'readline'
 require 'kenma/version'
 require 'kenma/container'
 require 'kenma/questions'

@@ -5,15 +5,17 @@ module Kenma
     class Polish
       PROMPT = "> "
       def self.run(id)
-        question = Kenma::Container.questions_with_id.find { |e|e.id == id}
+        question = Kenma::Container.questions_with_id.find { |e|e.id == id.to_i }
+        fail Kenma::Errors::NotExistError, "Not exist. Invalid question id (#{id}). " if question.nil?
         puts <<-EOS
 id: #{question.id}
 title: #{question.title}
 
-description: #{question.description}
+#{question.description}
         EOS
-        answer = Readline.readline(PROMPT, true)
-        Kenma::Answers::HelloWorldAnswer.correct?(answer) ? puts("ok!") : puts("ng!")
+        input_answer = Readline.readline(PROMPT, true)
+        answer = Kenma::Container.find_answer_by_id(id)
+        answer.correct?(input_answer) ? puts("ok!") : puts("ng!")
       end
     end
   end

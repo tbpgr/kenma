@@ -1,4 +1,5 @@
 # encoding: utf-8
+require 'stringio'
 
 module Kenma
   module Answers
@@ -11,14 +12,15 @@ module Kenma
 
       # rubocop:disable Lint/Eval
       def self.correct?(answer)
-        out = StringIO.new
+        out = ::StringIO.new
         out.set_encoding('utf-8')
         $stdout = out
         eval @template.gsub('$answer$', answer)
         actual = $stdout.string
         $stdout = STDOUT
         actual == @expected
-      rescue
+      rescue => e
+        puts e.message
         false
       ensure
         $stdout = STDOUT

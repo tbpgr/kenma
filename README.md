@@ -1,6 +1,6 @@
 # Kenma
 
-[WIP]Kenma is pluggable Question-Answer tool.
+[WIP]Kenma( 研磨 ) is pluggable Question-Answer tool.
 
 [![Build Status](https://travis-ci.org/tbpgr/kenma.png?branch=master)](https://travis-ci.org/tbpgr/kenma)
 

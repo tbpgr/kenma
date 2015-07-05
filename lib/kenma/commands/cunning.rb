@@ -4,6 +4,7 @@ module Kenma
   module Commands
     class Cunning
       def self.run(id)
+        Kenma::Container.bundle
         question = Kenma::Container.find_question_id(id)
         question_detail =<<-EOS
 id: #{question.id}

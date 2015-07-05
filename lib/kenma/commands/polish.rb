@@ -5,6 +5,7 @@ module Kenma
     class Polish
       PROMPT = "> "
       def self.run(id)
+        Kenma::Container.bundle
         question = Kenma::Container.questions_with_id.find { |e|e.id == id.to_i }
         fail Kenma::Errors::NotExistError, "Not exist. Invalid question id (#{id}). " if question.nil?
         puts <<-EOS
